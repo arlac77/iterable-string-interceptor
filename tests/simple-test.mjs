@@ -17,7 +17,7 @@ async function collect(a) {
     parts.push(c);
   }
 
-  return parts.join();
+  return parts.join("");
 }
 
 test("expressions within chunks", async t => {
@@ -41,5 +41,25 @@ test("expressions splitted between chunks", async t => {
       )
     ),
     "1<<aa>>23<<bb>>4"
+  );
+});
+
+test("double lead in handeled by transformer", async t => {
+  async function* transformer(expression, remainder, source, cb) {
+    const li = expression.indexOf("{{");
+    if (li >= 0) {
+      const lo = remainder.indexOf("}}");
+      yield `<<XXX>>`;
+      cb(remainder.substring(lo + 2));
+    } else {
+      yield `<<${expression}>>`;
+    }
+  }
+
+  t.is(
+    await collect(
+      iterableStringInterceptor(it(["1{{aa {{bb}} cc}}2"]), transformer)
+    ),
+    "1<<XXX>>2"
   );
 });

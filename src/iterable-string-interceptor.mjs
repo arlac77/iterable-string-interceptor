@@ -18,7 +18,7 @@
  * @param {ExpressionTransformer} transform
  * @param {string} leadIn
  * @param {string} leadOut
- *
+ * @return {Iterable<string>}
  */
 export async function* iterableStringInterceptor(
   source,
