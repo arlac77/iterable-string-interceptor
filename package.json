@@ -4,8 +4,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "description": "Intercept Iterable string - backbone for templates",
   "module": "src/iterable-string-interceptor.mjs",
+  "description": "Intercept Iterable string - backbone for templates",
   "keywords": [
     "template"
   ],
@@ -18,18 +18,18 @@
   "license": "BSD-2-Clause",
   "scripts": {
     "cover": "c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage",
-    "test": "ava",
-    "posttest": "markdown-doctest",
     "docs": "documentation readme src/iterable-string-interceptor.mjs --section=API",
-    "lint": "documentation lint src/iterable-string-interceptor.mjs"
+    "lint": "documentation lint src/iterable-string-interceptor.mjs",
+    "posttest": "markdown-doctest",
+    "test": "ava"
   },
   "dependencies": {},
   "devDependencies": {
-    "documentation": "^9.1.1",
-    "markdown-doctest": "^0.9.1",
     "ava": "^1.0.1",
     "c8": "^3.2.1",
+    "documentation": "^9.1.1",
     "esm": "^3.0.84",
+    "markdown-doctest": "^0.9.1",
     "semantic-release": "^15.13.2"
   },
   "engines": {
