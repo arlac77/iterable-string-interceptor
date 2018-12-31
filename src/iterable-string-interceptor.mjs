@@ -47,9 +47,16 @@ export async function* iterableStringInterceptor(
         if (lo >= 0) {
           const key = chunk.substring(li + leadIn.length, lo);
           chunk = chunk.substring(lo + leadOut.length);
-          yield* transform(key, chunk, source, remainder => {
-            chunk = remainder;
-          });
+          yield* transform(
+            key,
+            chunk,
+            source,
+            remainder => {
+              chunk = remainder;
+            },
+            leadIn,
+            leadOut
+          );
           inside = false;
         }
       }
@@ -65,9 +72,16 @@ export async function* iterableStringInterceptor(
         if (lo >= 0) {
           const key = chunk.substring(li + leadIn.length, lo);
           chunk = chunk.substring(lo + leadOut.length);
-          yield* transform(key, chunk, source, remainder => {
-            chunk = remainder;
-          });
+          yield* transform(
+            key,
+            chunk,
+            source,
+            remainder => {
+              chunk = remainder;
+            },
+            leadIn,
+            leadOut
+          );
         } else {
           inside = true;
           buffer = chunk;

@@ -44,13 +44,22 @@ test("expressions splitted between chunks", async t => {
   );
 });
 
-test("double lead in handeled by transformer", async t => {
-  async function* transformer(expression, remainder, source, cb) {
-    const li = expression.indexOf("{{");
+test.only("double lead in handeled by transformer", async t => {
+  async function* transformer(
+    expression,
+    remainder,
+    source,
+    cb,
+    leadIn,
+    leadOut
+  ) {
+    const li = expression.indexOf(leadIn);
     if (li >= 0) {
-      const lo = remainder.indexOf("}}");
-      yield `<<XXX>>`;
-      cb(remainder.substring(lo + 2));
+      const lo = remainder.indexOf(leadOut, li);
+      expression += leadOut + remainder.substring(0, lo);
+      yield `<<${expression}>>`;
+
+      cb(remainder.substring(lo + leadOut.length));
     } else {
       yield `<<${expression}>>`;
     }
@@ -60,6 +69,6 @@ test("double lead in handeled by transformer", async t => {
     await collect(
       iterableStringInterceptor(it(["1{{aa {{bb}} cc}}2"]), transformer)
     ),
-    "1<<XXX>>2"
+    "1<<aa {{bb}} cc>>2"
   );
 });
