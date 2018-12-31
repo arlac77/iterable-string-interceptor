@@ -44,7 +44,34 @@ test("expressions splitted between chunks", async t => {
   );
 });
 
-test.only("double lead in handeled by transformer", async t => {
+test("with ${ } lead in out", async t => {
+  t.is(
+    await collect(
+      iterableStringInterceptor(
+        it(["1${aa}2", "3${bb}4", "5${cc}67${dd}"]),
+        simpleTransformer,
+        "${",
+        "}"
+      )
+    ),
+    "1<<aa>>23<<bb>>45<<cc>>67<<dd>>"
+  );
+});
+
+test("yielding several chunks", async t => {
+  async function* transformer(expression) {
+    for (let i = 0; i < 10; i++) {
+      yield expression.toUpperCase();
+    }
+  }
+
+  t.is(
+    await collect(iterableStringInterceptor(it(["1{{b}}2"]), transformer)),
+    "1BBBBBBBBBB2"
+  );
+});
+
+test("double lead in handeled by transformer", async t => {
   async function* transformer(
     expression,
     remainder,
