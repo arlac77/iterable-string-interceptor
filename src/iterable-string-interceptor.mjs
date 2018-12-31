@@ -1,18 +1,18 @@
 /**
  * @typedef {()} ExpressionTransformer
- * @param {string} expression
- * @param {string} remainder
- * @param {Iterable<string>} source
- * @param {EarlyConsumerCallback} cb
- * @param {string} leadIn
- * @param {string} leadOut
+ * @param {string} expression detected expression without leadIn / leadOut
+ * @param {string} remainder chunk after leadOut
+ * @param {Iterable<string>} source original source
+ * @param {EarlyConsumerCallback} cb to be called if remainder has changed
+ * @param {string} leadIn expression entry sequence
+ * @param {string} leadOut expression exit sequence
  * @return {Iterable<string>} transformed source
  */
 
 /**
  * will be called from the ExpressionTransformer if the given remainder needs to be altered
  * @typedef {()} EarlyConsumerCallback
- * @param {string} remainder
+ * @param {string} remainder new remainder to be used by iterableStringInterceptor
  */
 
 /**
@@ -20,8 +20,8 @@
  * and asking a transformer for a replacement iterable string
  * @param {Iterable<string>} source
  * @param {ExpressionTransformer} transform
- * @param {string} leadIn
- * @param {string} leadOut
+ * @param {string} leadIn expression entry sequence
+ * @param {string} leadOut expression exit sequence
  * @return {Iterable<string>} transformed source
  */
 export async function* iterableStringInterceptor(

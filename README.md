@@ -25,9 +25,11 @@ Intercept Iterable string - backbone for templates
 import { iterableStringInterceptor } from "iterable-string-interceptor";
 import { createReadStream } from "fs";
 
-iterableStringInterceptor(createReadStream('aFile',{ encoding:"utf8"}),
+for await (const chunk of iterableStringInterceptor(createReadStream('aFile', { encoding: "utf8" }),
 async * (expression) => { yield expression * 2; }
-)
+)) {
+  process.stdout.write(chunk);
+}
 ```
 
 # API
@@ -49,12 +51,12 @@ Type: ()
 
 ### Parameters
 
--   `expression` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `remainder` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `source` **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
--   `cb` **[EarlyConsumerCallback](#earlyconsumercallback)** 
--   `leadIn` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `leadOut` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `expression` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** detected expression without leadIn / leadOut
+-   `remainder` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** chunk after leadOut
+-   `source` **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** original source
+-   `cb` **[EarlyConsumerCallback](#earlyconsumercallback)** to be called if remainder has changed
+-   `leadIn` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression entry sequence
+-   `leadOut` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression exit sequence
 
 Returns **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** transformed source
 
@@ -66,7 +68,7 @@ Type: ()
 
 ### Parameters
 
--   `remainder` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `remainder` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** new remainder to be used by iterableStringInterceptor
 
 ## iterableStringInterceptor
 
@@ -77,8 +79,8 @@ and asking a transformer for a replacement iterable string
 
 -   `source` **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
 -   `transform` **[ExpressionTransformer](#expressiontransformer)** 
--   `leadIn` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**  (optional, default `"{{"`)
--   `leadOut` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**  (optional, default `"}}"`)
+-   `leadIn` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression entry sequence (optional, default `"{{"`)
+-   `leadOut` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression exit sequence (optional, default `"}}"`)
 
 Returns **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** transformed source
 
