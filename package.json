@@ -4,8 +4,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "description": "Intercept Iterable string - backbone for templates",
   "module": "src/iterable-string-interceptor.mjs",
+  "description": "Intercept Iterable string - backbone for templates",
   "keywords": [
     "template"
   ],
@@ -25,11 +25,11 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "documentation": "^9.1.1",
-    "markdown-doctest": "^0.9.1",
     "ava": "^1.0.1",
     "c8": "^3.2.1",
+    "documentation": "^9.1.1",
     "esm": "^3.0.84",
+    "markdown-doctest": "^0.9.1",
     "semantic-release": "^15.13.2"
   },
   "engines": {
