@@ -4,8 +4,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "description": "",
-  "keywords": [],
+  "description": "Intercept Iterable string - backbone for templates",
+  "module": "src/iterable-string-interceptor.mjs",
+  "keywords": [
+    "template"
+  ],
   "contributors": [
     {
       "name": "Markus Felten",
@@ -17,8 +20,8 @@
     "cover": "c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage",
     "test": "ava",
     "posttest": "markdown-doctest",
-    "docs": "documentation readme {{module}} --section=API",
-    "lint": "documentation lint {{module}}"
+    "docs": "documentation readme src/iterable-string-interceptor.mjs --section=API",
+    "lint": "documentation lint src/iterable-string-interceptor.mjs"
   },
   "dependencies": {},
   "devDependencies": {

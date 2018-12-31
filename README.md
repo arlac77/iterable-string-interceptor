@@ -14,9 +14,10 @@
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![downloads](http://img.shields.io/npm/dm/iterable-string-interceptor.svg?style=flat-square)](https://npmjs.org/package/iterable-string-interceptor)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 # iterable-string-interceptor
 
-xxx
+Intercept Iterable string - backbone for templates
 
 <!-- skip example -->
 
