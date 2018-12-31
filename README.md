@@ -19,8 +19,8 @@
 
 Intercept Iterable string - backbone for templates
 
-
 <!-- skip-example -->
+
 ```javascript
 import { iterableStringInterceptor } from "iterable-string-interceptor";
 import { createReadStream } from "fs";
@@ -36,43 +36,51 @@ async * (expression) => { yield expression * 2; }
 
 ### Table of Contents
 
--   [iterableStringInterceptor](#iterablestringinterceptor)
+-   [ExpressionTransformer](#expressiontransformer)
     -   [Parameters](#parameters)
--   [iterableStringInterceptor](#iterablestringinterceptor-1)
+-   [EarlyConsumerCallback](#earlyconsumercallback)
     -   [Parameters](#parameters-1)
--   [iterableStringInterceptor](#iterablestringinterceptor-2)
+-   [iterableStringInterceptor](#iterablestringinterceptor)
     -   [Parameters](#parameters-2)
 
-## iterableStringInterceptor
+## ExpressionTransformer
+
+Type: ()
 
 ### Parameters
 
--   `source` **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
--   `transform`  
--   `leadIn` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**  (optional, default `"{{"`)
--   `leadOut` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**  (optional, default `"}}"`)
 -   `expression` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 -   `remainder` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **EarlyConsumerCallback** 
+-   `source` **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
+-   `cb` **[EarlyConsumerCallback](#earlyconsumercallback)** 
+-   `leadIn` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `leadOut` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-## iterableStringInterceptor
+Returns **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** transformed source
+
+## EarlyConsumerCallback
+
+will be called from the ExpressionTransformer if the given remainder needs to be altered
+
+Type: ()
 
 ### Parameters
 
--   `source`  
--   `transform`  
--   `leadIn`   (optional, default `"{{"`)
--   `leadOut`   (optional, default `"}}"`)
 -   `remainder` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ## iterableStringInterceptor
 
+intercept into a async iterable string source detecting lead in/outs like '{{' and '}}'
+and asking a transformer for a replacement iterable string
+
 ### Parameters
 
 -   `source` **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
--   `transform` **ExpressionTransformer** 
+-   `transform` **[ExpressionTransformer](#expressiontransformer)** 
 -   `leadIn` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**  (optional, default `"{{"`)
 -   `leadOut` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**  (optional, default `"}}"`)
+
+Returns **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** transformed source
 
 # install
 
