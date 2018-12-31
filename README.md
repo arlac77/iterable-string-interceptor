@@ -19,13 +19,16 @@
 
 Intercept Iterable string - backbone for templates
 
-<!-- skip example -->
 
-´´´js
+<!-- skip-example -->
+```javascript
+import { iterableStringInterceptor } from "iterable-string-interceptor";
+import { createReadStream } from "fs";
+
 iterableStringInterceptor(createReadStream('aFile',{ encoding:"utf8"}),
-async _ (expression) => { yield expression _ 2; }
+async * (expression) => { yield expression * 2; }
 )
-´´´
+```
 
 # API
 
