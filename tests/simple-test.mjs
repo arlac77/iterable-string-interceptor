@@ -1,5 +1,5 @@
 import test from "ava";
-import { iterableStringInterceptor } from "../iterable-string-interceptor";
+import { iterableStringInterceptor } from "../src/iterable-string-interceptor";
 
 async function* it(a) {
   for (const c of a) {
