@@ -11,6 +11,14 @@ async function* simpleTransformer(expression, remainder, source, cb) {
   yield `<<${expression}>>`;
 }
 
+async function* doubleTransformer(expression, remainder, source, cb) {
+  yield "<<";
+  yield expression;
+  yield "-";
+  yield expression;
+  yield ">>";
+}
+
 async function collect(a) {
   const parts = [];
   for await (const c of a) {
@@ -32,6 +40,18 @@ test("expressions within chunks", async t => {
   );
 });
 
+test("expressions within chunks serveral transformed chunks", async t => {
+  t.is(
+    await collect(
+      iterableStringInterceptor(
+        it(["1{{aa}}2", "3{{bb}}4", "5{{cc}}67{{dd}}"]),
+        doubleTransformer
+      )
+    ),
+    "1<<aa-aa>>23<<bb-bb>>45<<cc-cc>>67<<dd-dd>>"
+  );
+});
+
 test("expressions splitted between chunks", async t => {
   t.is(
     await collect(
@@ -44,7 +64,7 @@ test("expressions splitted between chunks", async t => {
   );
 });
 
-test("with ${ } lead in out", async t => {
+test("with ${ } lead -in/ -out", async t => {
   t.is(
     await collect(
       iterableStringInterceptor(
@@ -71,7 +91,7 @@ test("yielding several chunks", async t => {
   );
 });
 
-test("double lead in handeled by transformer", async t => {
+test("double lead-in handeled by transformer", async t => {
   async function* transformer(
     expression,
     remainder,
