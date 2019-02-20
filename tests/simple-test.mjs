@@ -1,11 +1,7 @@
 import test from "ava";
+import { it, collect } from "./util";
 import { iterableStringInterceptor } from "../src/iterable-string-interceptor";
 
-async function* it(a) {
-  for (const c of a) {
-    yield c;
-  }
-}
 
 async function* simpleTransformer(expression, remainder, source, cb) {
   yield `<<${expression}>>`;
@@ -17,15 +13,6 @@ async function* doubleTransformer(expression, remainder, source, cb) {
   yield "-";
   yield expression;
   yield ">>";
-}
-
-async function collect(a) {
-  const parts = [];
-  for await (const c of a) {
-    parts.push(c);
-  }
-
-  return parts.join("");
 }
 
 test("expressions within chunks", async t => {
