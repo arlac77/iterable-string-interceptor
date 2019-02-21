@@ -2,31 +2,35 @@ import test from "ava";
 import { it, collect } from "./util";
 import { iterableStringInterceptor } from "../src/iterable-string-interceptor";
 
-
-async function* forLoopTransformer(expression, remainder, source, cb) {
-}
-
 async function* templateTransformer(expression, remainder, source, cb) {
-  let m = expression.match(/^#end/);
-  if(m) {
-    return;
-  }
-
-  m = expression.match(/^#for\s+(\w+)\s+of\s+(.*)/);
+  const m = expression.match(/^#for\s+(\w+)\s+of\s+(.*)/);
 
   if (m) {
     const item = m[1];
     const list = m[2].split(/\s*,\s*/);
     //console.log(item, list);
-    console.log(remainder);
+    //console.log(remainder);
 
-    for(const item of list) {
+    const body = [remainder];
 
+    async function* untilEnd(expression, remainder, source, cb) {
+      console.log("EXPRESSION", expression);
     }
 
-    yield *iterableStringInterceptor(source,templateTransformer);
-  }
-  else {
+    for await (const chunk of iterableStringInterceptor(
+      source,
+      untilEnd,
+      "{{#end"
+    )) {
+      body.push(chunk);
+    }
+
+    for (const item of list) {
+      yield body.join("");
+    }
+
+    yield* iterableStringInterceptor(source, templateTransformer);
+  } else {
     yield expression;
   }
 }
@@ -35,10 +39,10 @@ test.skip("simple template engine", async t => {
   t.is(
     await collect(
       iterableStringInterceptor(
-        it(["{{#for x of a,b,c}}","-{{x}}","{{#end}}"]),
+        it(["<A>{{#for x of a,b,c}}", "-{{x}}", "{{#end}}<E>"]),
         templateTransformer
       )
     ),
-    "-a -b -c"
+    "<A>-a -b -c<E>"
   );
 });
