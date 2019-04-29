@@ -1,6 +1,6 @@
 import test from "ava";
-import { it, collect } from "./util";
-import { iterableStringInterceptor } from "../src/iterable-string-interceptor";
+import { it, collect } from "./util.mjs";
+import { iterableStringInterceptor } from "../src/iterable-string-interceptor.mjs";
 
 
 async function* simpleTransformer(expression, remainder, source, cb) {

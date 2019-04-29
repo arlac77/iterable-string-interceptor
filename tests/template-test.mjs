@@ -1,6 +1,6 @@
 import test from "ava";
-import { it, collect } from "./util";
-import { iterableStringInterceptor } from "../src/iterable-string-interceptor";
+import { it, collect } from "./util.mjs";
+import { iterableStringInterceptor } from "../src/iterable-string-interceptor.mjs";
 
 async function* templateTransformer(expression, remainder, source, cb) {
   const m = expression.match(/^#for\s+(\w+)\s+of\s+(.*)/);
