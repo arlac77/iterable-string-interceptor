@@ -24,7 +24,8 @@
     "docs": "documentation readme src/iterable-string-interceptor.mjs --section=API",
     "lint": "documentation lint src/iterable-string-interceptor.mjs",
     "posttest": "markdown-doctest",
-    "test": "ava"
+    "test": "ava",
+    "prepare": "rollup -c"
   },
   "devDependencies": {
     "ava": "^2.4.0",
