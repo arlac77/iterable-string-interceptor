@@ -45,8 +45,8 @@ export async function* iterableStringInterceptor(
       if (inside) {
         const lo = chunk.indexOf(leadOut, li + leadIn.length);
         if (lo >= 0) {
-          const key = chunk.substring(li + leadIn.length, lo);
-          chunk = chunk.substring(lo + leadOut.length);
+          const key = chunk.slice(li + leadIn.length, lo);
+          chunk = chunk.slice(lo + leadOut.length);
           yield* transform(
             key,
             chunk,
@@ -64,14 +64,14 @@ export async function* iterableStringInterceptor(
       li = chunk.indexOf(leadIn);
       if (li >= 0) {
         if (li > 0) {
-          yield chunk.substring(0, li);
+          yield chunk.slice(0, li);
         }
 
         const lo = chunk.indexOf(leadOut, li + leadIn.length);
 
         if (lo >= 0) {
-          const key = chunk.substring(li + leadIn.length, lo);
-          chunk = chunk.substring(lo + leadOut.length);
+          const key = chunk.slice(li + leadIn.length, lo);
+          chunk = chunk.slice(lo + leadOut.length);
           yield* transform(
             key,
             chunk,
