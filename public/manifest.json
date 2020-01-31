@@ -1,0 +1,10 @@
+{
+  "name": "iterable-string-interceptor",
+  "description": "Intercept Iterable string - backbone for templates",
+  "icons": [
+    {
+      "src": "facicon.ico",
+      "sizes": "16x16"
+    }
+  ]
+}
