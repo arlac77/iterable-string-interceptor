@@ -35,7 +35,7 @@ async * (expression) => { yield expression * 2; }
 import { iterableStringInterceptor } from "iterable-string-interceptor";
 import fs,{ createReadStream } from "fs";
 
-// threaad expression as to be included content {{filename}}
+// handle expression as to be included content {{filename}}
 for await (const chunk of iterableStringInterceptor(createReadStream('aFile', { encoding: "utf8" }),
 async * (expression) => { yield fs.promises.readFile(expression,{encoding: "utf8"}); }
 )) {
