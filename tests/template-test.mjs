@@ -1,5 +1,5 @@
 import test from "ava";
-import { it, collect } from "./util.mjs";
+import { it, collect } from "./helpers/util.mjs";
 import { iterableStringInterceptor } from "../src/iterable-string-interceptor.mjs";
 
 async function* templateTransformer(expression, remainder, source, cb) {
