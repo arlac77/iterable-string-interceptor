@@ -10,7 +10,8 @@
   "module": "src/iterable-string-interceptor.mjs",
   "description": "Intercept Iterable string - backbone for templates",
   "keywords": [
-    "template"
+    "template",
+    "chunk"
   ],
   "contributors": [
     {
