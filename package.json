@@ -8,7 +8,8 @@
   "type": "module",
   "main": "src/iterable-string-interceptor.mjs",
   "exports": {
-    ".": "./src/iterable-string-interceptor.mjs"
+    ".": "./src/iterable-string-interceptor.mjs",
+    "./": "./"
   },
   "description": "Intercept Iterable string - backbone for templates",
   "keywords": [
