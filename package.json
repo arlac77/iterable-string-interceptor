@@ -5,8 +5,6 @@
     "access": "public"
   },
   "sideEffects": false,
-  "type": "module",
-  "main": "./src/iterable-string-interceptor.mjs",
   "exports": {
     ".": "./src/iterable-string-interceptor.mjs"
   },
