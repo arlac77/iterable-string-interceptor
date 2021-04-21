@@ -3,7 +3,7 @@
 [![minified size](https://badgen.net/bundlephobia/min/iterable-string-interceptor)](https://bundlephobia.com/result?p=iterable-string-interceptor)
 [![downloads](http://img.shields.io/npm/dm/iterable-string-interceptor.svg?style=flat-square)](https://npmjs.org/package/iterable-string-interceptor)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/iterable-string-interceptor.svg?style=flat-square)](https://github.com/arlac77/iterable-string-interceptor/issues)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Fiterable-string-interceptor%2Fbadge&style=flat)](https://actions-badge.atrox.dev/arlac77/iterable-string-interceptor/goto)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Fiterable-string-interceptor%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/arlac77/iterable-string-interceptor/goto)
 [![Styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/iterable-string-interceptor/badge.svg)](https://snyk.io/test/github/arlac77/iterable-string-interceptor)
@@ -46,12 +46,12 @@ async * (expression) => { yield fs.promises.readFile(expression,{encoding: "utf8
 
 ### Table of Contents
 
--   [ExpressionTransformer](#expressiontransformer)
-    -   [Parameters](#parameters)
--   [EarlyConsumerCallback](#earlyconsumercallback)
-    -   [Parameters](#parameters-1)
--   [iterableStringInterceptor](#iterablestringinterceptor)
-    -   [Parameters](#parameters-2)
+*   [ExpressionTransformer](#expressiontransformer)
+    *   [Parameters](#parameters)
+*   [EarlyConsumerCallback](#earlyconsumercallback)
+    *   [Parameters](#parameters-1)
+*   [iterableStringInterceptor](#iterablestringinterceptor)
+    *   [Parameters](#parameters-2)
 
 ## ExpressionTransformer
 
@@ -59,14 +59,14 @@ Type: ()
 
 ### Parameters
 
--   `expression` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** detected expression without leadIn / leadOut
--   `remainder` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** chunk after leadOut
--   `source` **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** original source
--   `cb` **[EarlyConsumerCallback](#earlyconsumercallback)** to be called if remainder has changed
--   `leadIn` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression entry sequence
--   `leadOut` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression exit sequence
+*   `expression` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** detected expression without leadIn / leadOut
+*   `remainder` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** chunk after leadOut
+*   `source` **Iterable<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** original source
+*   `cb` **[EarlyConsumerCallback](#earlyconsumercallback)** to be called if remainder has changed
+*   `leadIn` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression entry sequence
+*   `leadOut` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression exit sequence
 
-Returns **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** transformed source
+Returns **Iterable<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** transformed source
 
 ## EarlyConsumerCallback
 
@@ -76,7 +76,7 @@ Type: ()
 
 ### Parameters
 
--   `remainder` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** new remainder to be used by iterableStringInterceptor
+*   `remainder` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** new remainder to be used by iterableStringInterceptor
 
 ## iterableStringInterceptor
 
@@ -85,12 +85,12 @@ and asking a transformer for a replacement iterable string
 
 ### Parameters
 
--   `source` **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
--   `transform` **[ExpressionTransformer](#expressiontransformer)** 
--   `leadIn` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression entry sequence (optional, default `"{{"`)
--   `leadOut` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression exit sequence (optional, default `"}}"`)
+*   `source` **Iterable<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
+*   `transform` **[ExpressionTransformer](#expressiontransformer)** 
+*   `leadIn` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression entry sequence (optional, default `"{{"`)
+*   `leadOut` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression exit sequence (optional, default `"}}"`)
 
-Returns **Iterable&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** transformed source
+Returns **Iterable<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** transformed source
 
 # install
 
