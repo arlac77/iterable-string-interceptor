@@ -55,15 +55,16 @@ test("with ${ } lead -in/ -out", async t => {
   t.is(
     await collect(
       iterableStringInterceptor(
-        it(["1${aa}2", "3${bb}4", "5${cc}67${dd}"]),
+        it(["1{}${aa}2}", "3${bb}4", "5${cc}67${dd}"]),
         simpleTransformer,
         "${",
         "}"
       )
     ),
-    "1<<aa>>23<<bb>>45<<cc>>67<<dd>>"
+    "1{}<<aa>>2}3<<bb>>45<<cc>>67<<dd>>"
   );
 });
+
 
 test("yielding several chunks", async t => {
   async function* transformer(expression) {
