@@ -18,11 +18,12 @@ Intercept Iterable string - backbone for templates
 ```javascript
 import { iterableStringInterceptor } from "iterable-string-interceptor";
 import { createReadStream } from "fs";
+import { readFile } from "fs/promises";
 
 // double values inside {{}}
 // {{7}} -> 14
 for await (const chunk of iterableStringInterceptor(createReadStream('aFile', { encoding: "utf8" }),
-async * (expression) => { yield expression * 2; }
+  expression => expression * 2
 )) {
   process.stdout.write(chunk);
 }
@@ -30,11 +31,12 @@ async * (expression) => { yield expression * 2; }
 
 ```javascript
 import { iterableStringInterceptor } from "iterable-string-interceptor";
-import fs,{ createReadStream } from "fs";
+import { createReadStream } from "fs";
+import { readFile } from "fs/promises";
 
 // handle expression as to be included content {{filename}}
 for await (const chunk of iterableStringInterceptor(createReadStream('aFile', { encoding: "utf8" }),
-async * (expression) => { yield fs.promises.readFile(expression,{encoding: "utf8"}); }
+  async * (expression) => { yield readFile(expression, { encoding: "utf8" }); }
 )) {
   process.stdout.write(chunk);
 }
@@ -46,12 +48,17 @@ async * (expression) => { yield fs.promises.readFile(expression,{encoding: "utf8
 
 ### Table of Contents
 
-*   [ExpressionTransformer](#expressiontransformer)
-    *   [Parameters](#parameters)
-*   [EarlyConsumerCallback](#earlyconsumercallback)
-    *   [Parameters](#parameters-1)
-*   [iterableStringInterceptor](#iterablestringinterceptor)
-    *   [Parameters](#parameters-2)
+- [iterable-string-interceptor](#iterable-string-interceptor)
+- [API](#api)
+    - [Table of Contents](#table-of-contents)
+  - [ExpressionTransformer](#expressiontransformer)
+    - [Parameters](#parameters)
+  - [EarlyConsumerCallback](#earlyconsumercallback)
+    - [Parameters](#parameters-1)
+  - [iterableStringInterceptor](#iterablestringinterceptor)
+    - [Parameters](#parameters-2)
+- [install](#install)
+- [license](#license)
 
 ## ExpressionTransformer
 
