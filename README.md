@@ -48,17 +48,12 @@ for await (const chunk of iterableStringInterceptor(createReadStream('aFile', { 
 
 ### Table of Contents
 
-- [iterable-string-interceptor](#iterable-string-interceptor)
-- [API](#api)
-    - [Table of Contents](#table-of-contents)
-  - [ExpressionTransformer](#expressiontransformer)
-    - [Parameters](#parameters)
-  - [EarlyConsumerCallback](#earlyconsumercallback)
-    - [Parameters](#parameters-1)
-  - [iterableStringInterceptor](#iterablestringinterceptor)
-    - [Parameters](#parameters-2)
-- [install](#install)
-- [license](#license)
+*   [ExpressionTransformer](#expressiontransformer)
+    *   [Parameters](#parameters)
+*   [EarlyConsumerCallback](#earlyconsumercallback)
+    *   [Parameters](#parameters-1)
+*   [iterableStringInterceptor](#iterablestringinterceptor)
+    *   [Parameters](#parameters-2)
 
 ## ExpressionTransformer
 
