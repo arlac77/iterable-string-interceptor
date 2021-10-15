@@ -10,14 +10,14 @@
  */
 
 /**
- * will be called from the ExpressionTransformer if the given remainder needs to be altered
+ * Will be called from the ExpressionTransformer if the given remainder needs to be altered.
  * @typedef {()} EarlyConsumerCallback
  * @param {string} remainder new remainder to be used by iterableStringInterceptor
  */
 
 /**
- * intercept into a async iterable string source detecting lead in/outs like '{{' and '}}'
- * and asking a transformer for a replacement iterable string
+ * Intercept into a async iterable string source, detecting lead in/outs like '{{' and '}}'
+ * and asking a transformer for a replacement iterable string.
  * @param {Iterable<string>} source
  * @param {ExpressionTransformer} transform
  * @param {string} leadIn expression entry sequence
