@@ -72,7 +72,7 @@ Returns **Iterable<[string](https://developer.mozilla.org/docs/Web/JavaScript/Re
 
 ## EarlyConsumerCallback
 
-will be called from the ExpressionTransformer if the given remainder needs to be altered
+Will be called from the ExpressionTransformer if the given remainder needs to be altered.
 
 Type: ()
 
@@ -82,8 +82,8 @@ Type: ()
 
 ## iterableStringInterceptor
 
-intercept into a async iterable string source detecting lead in/outs like '{{' and '}}'
-and asking a transformer for a replacement iterable string
+Intercept into a async iterable string source, detecting lead in/outs like '{{' and '}}'
+and asking a transformer for a replacement iterable string.
 
 ### Parameters
 
