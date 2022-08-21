@@ -8,7 +8,7 @@
   "exports": {
     ".": "./src/iterable-string-interceptor.mjs"
   },
-  "description": "Intercept Iterable string - backbone for templates",
+  "description": "Intercept Iterable string - backbone for template engines",
   "keywords": [
     "chunk",
     "template"

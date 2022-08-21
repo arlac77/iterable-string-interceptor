@@ -11,7 +11,7 @@
 
 # iterable-string-interceptor
 
-Intercept Iterable string - backbone for templates
+Intercept Iterable string - backbone for template engines
 
 <!-- skip-example -->
 
