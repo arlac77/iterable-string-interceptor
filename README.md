@@ -87,8 +87,8 @@ and asking a transformer for a replacement iterable string.
 
 ### Parameters
 
-*   `source` **Iterable<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
-*   `transform` **[ExpressionTransformer](#expressiontransformer)** 
+*   `source` **Iterable<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**&#x20;
+*   `transform` **[ExpressionTransformer](#expressiontransformer)**&#x20;
 *   `leadIn` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression entry sequence (optional, default `"{{"`)
 *   `leadOut` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** expression exit sequence (optional, default `"}}"`)
 
