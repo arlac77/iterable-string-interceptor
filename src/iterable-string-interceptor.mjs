@@ -99,7 +99,7 @@ export async function* iterableStringInterceptor(
       }
     } while (chunk.length > 0);
   }
-  if (buffer != undefined) {
+  if (buffer !== undefined) {
     yield buffer;
   }
 }
