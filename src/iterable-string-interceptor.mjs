@@ -1,5 +1,5 @@
 /**
- * @typedef {()} ExpressionTransformer
+ * @typedef {Function} ExpressionTransformer
  * @param {string} expression detected expression without leadIn / leadOut
  * @param {string} remainder chunk after leadOut
  * @param {Iterable<string>} source original source
@@ -11,7 +11,7 @@
 
 /**
  * Will be called from the ExpressionTransformer if the given remainder needs to be altered.
- * @typedef {()} EarlyConsumerCallback
+ * @typedef {Function} EarlyConsumerCallback
  * @param {string} remainder new remainder to be used by iterableStringInterceptor
  */
 
