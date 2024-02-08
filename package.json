@@ -5,13 +5,13 @@
     "access": "public",
     "provenance": true
   },
+  "types": "./dist/iterable-string-interceptor.d.mts",
   "exports": {
     ".": {
       "types": "./dist/iterable-string-interceptor.d.mts",
       "default": "./src/iterable-string-interceptor.mjs"
     }
   },
-  "types": "./dist/iterable-string-interceptor.d.mts",
   "description": "Intercept iterable string - backbone for template engines",
   "keywords": [
     "chunk",
