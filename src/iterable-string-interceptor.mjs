@@ -6,7 +6,7 @@
  * @param {EarlyConsumerCallback} cb to be called if remainder has changed
  * @param {string} leadIn expression entry sequence
  * @param {string} leadOut expression exit sequence
- * @return {AsyncIterator<string>} transformed source
+ * @return {AsyncIterable<string>} transformed source
  */
 
 /**
@@ -22,7 +22,7 @@
  * @param {ExpressionTransformer} transform
  * @param {string} leadIn expression entry sequence
  * @param {string} leadOut expression exit sequence
- * @return {AsyncIterator<string>} transformed source
+ * @return {AsyncIterable<string>} transformed source
  */
 export async function* iterableStringInterceptor(
   source,
