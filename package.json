@@ -8,7 +8,7 @@
   "types": "./types/iterable-string-interceptor.d.mts",
   "exports": {
     ".": {
-      "default": "./types/iterable-string-interceptor.mjs",
+      "default": "./src/iterable-string-interceptor.mjs",
       "types": "./types/iterable-string-interceptor.d.mts"
     }
   },
