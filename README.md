@@ -58,7 +58,7 @@ for await (const chunk of iterableStringInterceptor(createReadStream('aFile', { 
 
 ## ExpressionTransformer
 
-Type: [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)
+Type: function ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), Iterable<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>, [EarlyConsumerCallback](#earlyconsumercallback), [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)): AsyncIterable<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>
 
 ### Parameters
 
@@ -75,7 +75,7 @@ Returns **AsyncIterable<[string](https://developer.mozilla.org/docs/Web/JavaScri
 
 Will be called from the ExpressionTransformer if the given remainder needs to be altered.
 
-Type: [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)
+Type: function ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)): void
 
 ### Parameters
 
