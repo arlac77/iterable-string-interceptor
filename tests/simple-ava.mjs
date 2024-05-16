@@ -2,6 +2,10 @@ import test from "ava";
 import { it, collect } from "./helpers/util.mjs";
 import { iterableStringInterceptor } from "iterable-string-interceptor";
 
+async function* nullTransformer(expression, remainder, source, cb,leadIn,leadOut) {
+//  yield undefined;
+  yield leadIn + expression + leadOut;
+}
 
 async function* simpleTransformer(expression, remainder, source, cb) {
   yield `<<${expression}>>`;
@@ -65,6 +69,20 @@ test("with ${ } lead -in/ -out", async t => {
   );
 });
 
+test("expressions null transformer", async t => {
+  const str =`   * @param {string[]} argv
+  * @return {{operands: string[], unknown: string[]}}`;
+
+  t.is(
+    await collect(
+      iterableStringInterceptor(
+        it([str]),
+        nullTransformer
+      )
+    ),
+    str
+  );
+});
 
 test("yielding several chunks", async t => {
   async function* transformer(expression) {
