@@ -8,8 +8,8 @@
   "types": "./types/iterable-string-interceptor.d.mts",
   "exports": {
     ".": {
-      "default": "./src/iterable-string-interceptor.mjs",
-      "types": "./types/iterable-string-interceptor.d.mts"
+      "types": "./types/iterable-string-interceptor.d.mts",
+      "default": "./src/iterable-string-interceptor.mjs"
     }
   },
   "description": "Intercept iterable string - backbone for template engines",
