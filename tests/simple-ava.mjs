@@ -69,6 +69,18 @@ test("with ${ } lead -in/ -out", async t => {
   );
 });
 
+test("expressions missing leadOut", async t => {
+  t.is(
+    await collect(
+      iterableStringInterceptor(
+        it(["123{{aa"]),
+        simpleTransformer
+      )
+    ),
+    "123{{aa"
+  );
+});
+
 test("expressions null transformer", async t => {
   const str =`   * @param {string[]} argv
   * @return {{operands: string[], unknown: string[]}}`;

@@ -84,7 +84,8 @@ export async function* iterableStringInterceptor(
           );
         } else {
           inside = true;
-          buffer = chunk;
+          buffer = chunk.slice(li);
+          li = 0;
           break;
         }
       } else {
