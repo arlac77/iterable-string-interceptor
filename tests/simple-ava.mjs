@@ -97,7 +97,7 @@ test("yielding several chunks", async t => {
   );
 });
 
-test("double lead-in handeled by transformer", async t => {
+test("double lead-in handled by transformer", async t => {
   async function* transformer(
     expression,
     remainder,
