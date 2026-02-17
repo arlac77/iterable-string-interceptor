@@ -16,7 +16,8 @@
   "description": "Intercept iterable string - backbone for template engines",
   "keywords": [
     "chunk",
-    "template"
+    "template",
+    "iterable"
   ],
   "contributors": [
     {
@@ -46,7 +47,7 @@
     "typescript": "^5.9.3"
   },
   "engines": {
-    "node": ">=22.22.0"
+    "node": ">=24.13.1"
   },
   "repository": {
     "type": "git",
