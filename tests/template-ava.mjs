@@ -8,13 +8,15 @@ async function* templateTransformer(expression, remainder, source, cb) {
   if (m) {
     const item = m[1];
     const list = m[2].split(/\s*,\s*/);
-    //console.log(item, list);
-    //console.log(remainder);
 
-    const body = [remainder];
+    let body = remainder;
+
+    let stop = false;
+    let extra;
 
     async function* untilEnd(expression, remainder, source, cb) {
-      console.log("EXPRESSION", expression);
+      stop = true;
+      extra = remainder;
     }
 
     for await (const chunk of iterableStringInterceptor(
@@ -22,20 +24,23 @@ async function* templateTransformer(expression, remainder, source, cb) {
       untilEnd,
       "{{#end"
     )) {
-      body.push(chunk);
+      if (!stop) {
+        body += chunk;
+      }
     }
 
     for (const item of list) {
-      yield body.join("");
+      yield body.replace(/\{\{x\}\}/g, item);
     }
 
+    yield extra;
     yield* iterableStringInterceptor(source, templateTransformer);
   } else {
     yield expression;
   }
 }
 
-test.skip("simple template engine", async t => {
+test("simple template engine", async t => {
   t.is(
     await collect(
       iterableStringInterceptor(
@@ -43,6 +48,6 @@ test.skip("simple template engine", async t => {
         templateTransformer
       )
     ),
-    "<A>-a -b -c<E>"
+    "<A>-a-b-c<E>"
   );
 });
