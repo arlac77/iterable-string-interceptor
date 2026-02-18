@@ -16,8 +16,8 @@
   "description": "Intercept iterable string - backbone for template engines",
   "keywords": [
     "chunk",
-    "template",
-    "iterable"
+    "iterable",
+    "template"
   ],
   "contributors": [
     {
