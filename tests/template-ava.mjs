@@ -10,7 +10,6 @@ async function* templateTransformer(expression, remainder, source, cb) {
     const list = m[2].split(/\s*,\s*/);
 
     let body = remainder;
-
     let stop = false;
     let extra;
 
@@ -29,8 +28,9 @@ async function* templateTransformer(expression, remainder, source, cb) {
       }
     }
 
+    const r = new RegExp(`\\{\\{${item}\\}\\}`, "g");
     for (const item of list) {
-      yield body.replace(/\{\{x\}\}/g, item);
+      yield body.replace(r, item);
     }
 
     yield extra;
@@ -44,7 +44,7 @@ test("simple template engine", async t => {
   t.is(
     await collect(
       iterableStringInterceptor(
-        it(["<A>{{#for x of a,b,c}}", "-{{x}}", "{{#end}}<E>"]),
+        it(["<A>{{#for item of a,b,c}}", "-{{item}}", "{{#end}}<E>"]),
         templateTransformer
       )
     ),
